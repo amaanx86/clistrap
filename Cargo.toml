@@ -1,0 +1,10 @@
+[package]
+name = "clistrap"
+version = "0.1.0"
+edition = "2024"
+description = "Enterprise CLI framework template with SSO auth (Entra, Okta) - fork and build your internal CLI"
+repository = "https://github.com/amaanax86/clistrap"
+keywords = ["cli", "enterprise", "auth", "sso", "template"]
+categories = ["command-line-utilities", "authentication"]
+
+[dependencies]
