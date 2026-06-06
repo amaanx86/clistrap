@@ -1,9 +1,8 @@
-# CLI_NAME  - installed binary name (rename your fork here)
-# CARGO_BIN - must match [[bin]] name in Cargo.toml
-# BIN_DIR   - install destination
+# CLI_NAME - installed binary name (defaults to the name in Cargo.toml)
+# BIN_DIR  - install destination
 
-CLI_NAME  ?= clistrap
-CARGO_BIN ?= clistrap
+CARGO_BIN ?= $(shell grep -m1 '^name' Cargo.toml | sed 's/name\s*=\s*"\(.*\)"/\1/')
+CLI_NAME  ?= $(CARGO_BIN)
 BIN_DIR   ?= /usr/local/bin
 
 RELEASE_BIN = target/release/$(CARGO_BIN)

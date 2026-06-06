@@ -68,9 +68,9 @@ az account show --query tenantId --output tsv
 
 ## Rename your CLI
 
-To ship this as `acme` or `deploy-tool` instead of `clistrap`:
+`cargo generate --name <your-name>` sets the binary name automatically via `Cargo.toml`.
 
-1. Change `name` in `Cargo.toml` under `[package]` and `[[bin]]`:
+For a manual fork, edit `Cargo.toml`:
 
 ```toml
 [package]
@@ -81,11 +81,7 @@ name = "acme"
 path = "src/main.rs"
 ```
 
-1. Update `CLI_NAME` and `CARGO_BIN` in the Makefile (or pass them on the command line):
-
-```bash
-make install CLI_NAME=acme CARGO_BIN=acme
-```
+Then `make install` picks up the name automatically - no flags needed.
 
 ---
 
@@ -119,21 +115,21 @@ make install BIN_DIR=~/.local/bin
 
 ```bash
 cargo install cargo-generate       # one-time setup
-cargo generate --git https://github.com/amaanax86/clistrap --name my-cli
+cargo generate --git git@github.com:amaanax86/clistrap.git --name my-cli
 cd my-cli
-# cargo-generate filled in clistrap.example.toml with your answers
-# Still needed: rename [package].name and [[bin]].name in Cargo.toml to "my-cli"
 cp clistrap.example.toml clistrap.toml
-make install CLI_NAME=my-cli CARGO_BIN=my-cli
+make install
 my-cli auth login
 ```
+
+`clistrap.example.toml` is pre-filled with your answers. `make install` picks up the binary name from `Cargo.toml` automatically.
 
 ### Manual fork
 
 ```bash
 git clone https://github.com/amaanax86/clistrap my-cli
 cd my-cli
-# Rename the binary: edit Cargo.toml (see "Rename your CLI" below)
+# edit Cargo.toml: set name = "my-cli" under [package] and [[bin]]
 cp clistrap.example.toml clistrap.toml   # fill in tenant_id, client_id, domain
 make install
 my-cli auth login

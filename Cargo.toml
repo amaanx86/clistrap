@@ -1,5 +1,5 @@
 [package]
-name = "clistrap"
+name = "{{project-name}}"
 version = "0.1.0"
 edition = "2024"
 description = "Enterprise CLI framework template with Entra ID SSO - fork and build your internal CLI"
@@ -8,7 +8,7 @@ keywords = ["cli", "enterprise", "auth", "sso", "template"]
 categories = ["command-line-utilities", "authentication"]
 
 [[bin]]
-name = "clistrap"
+name = "{{project-name}}"
 path = "src/main.rs"
 
 [dependencies]
