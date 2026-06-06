@@ -23,3 +23,7 @@ debug
 # Added by cargo
 
 /target
+
+# Local files with real tenant/client IDs - never commit these
+clistrap.toml
+.build.env
