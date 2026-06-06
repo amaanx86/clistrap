@@ -1,7 +1,7 @@
 # CLI_NAME - installed binary name (defaults to the name in Cargo.toml)
 # BIN_DIR  - install destination
 
-CARGO_BIN ?= $(shell grep -m1 '^name' Cargo.toml | sed 's/name\s*=\s*"\(.*\)"/\1/')
+CARGO_BIN ?= $(shell grep -m1 '^name' Cargo.toml | cut -d'"' -f2)
 CLI_NAME  ?= $(CARGO_BIN)
 BIN_DIR   ?= /usr/local/bin
 
