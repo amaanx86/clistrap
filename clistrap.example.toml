@@ -1,0 +1,20 @@
+# Copy this file to clistrap.toml and add it to .gitignore.
+# The auth flow is a public PKCE flow - no client secret is needed or stored.
+
+[company]
+# Shown in login prompts
+name = "{{company_name}}"
+# Only users with this email domain can authenticate
+domain = "{{company_domain}}"
+
+[auth]
+# Azure Entra ID (formerly Azure AD)
+# Find these in: Azure portal > App registrations > your app > Overview
+tenant_id = "{{tenant_id}}"
+client_id = "{{client_id}}"
+
+# Optional: override the default scopes
+# scopes = ["openid", "profile", "email"]
+
+# Optional: local port for the OAuth2 callback (default 8899)
+# redirect_port = 8899

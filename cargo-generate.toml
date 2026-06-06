@@ -1,0 +1,12 @@
+[template]
+cargo_generate_version = ">=0.19.0"
+# Cargo.toml is excluded so the template repo stays buildable.
+# After generation, rename [package].name and [[bin]].name in Cargo.toml
+# to match your chosen binary name (same value you passed to --name).
+exclude = ["target/", "Cargo.lock", "Cargo.toml"]
+
+[placeholders]
+company_name = { type = "string", prompt = "Company display name (shown in login prompts)" }
+company_domain = { type = "string", prompt = "Company email domain for SSO validation (e.g. acme.com)" }
+tenant_id = { type = "string", prompt = "Azure Entra ID tenant ID (Enter to configure later)", default = "00000000-0000-0000-0000-000000000000" }
+client_id = { type = "string", prompt = "Azure Entra ID client ID (Enter to configure later)", default = "00000000-0000-0000-0000-000000000000" }
