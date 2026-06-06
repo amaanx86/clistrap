@@ -1,9 +1,9 @@
 [template]
 cargo_generate_version = ">=0.19.0"
-# Cargo.toml is excluded so the template repo stays buildable.
+# Cargo.toml excluded so the template repo stays buildable.
 # After generation, rename [package].name and [[bin]].name in Cargo.toml
 # to match your chosen binary name (same value you passed to --name).
-exclude = ["target/", "Cargo.lock", "Cargo.toml"]
+exclude = ["target/", "Cargo.lock", "Cargo.toml", ".github/assets/**"]
 
 [placeholders]
 company_name = { type = "string", prompt = "Company display name (shown in login prompts)" }
